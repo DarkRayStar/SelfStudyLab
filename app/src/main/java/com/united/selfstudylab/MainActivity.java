@@ -12,6 +12,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button start,stop;
+    boolean isRunning = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +28,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view){
-        if(view == start){
+        if(view == start && isRunning == false){
+            isRunning = true;
             startService(new Intent(this,MyServices.class));
         }else if(view == stop){
+            isRunning = false;
             stopService(new Intent(this,MyServices.class));
         }
     }
