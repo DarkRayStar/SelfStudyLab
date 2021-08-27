@@ -20,8 +20,7 @@ public class MyServices extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI);
-        player.setLooping(true);
+        player = MediaPlayer.create(this,R.raw.nfs_carbon);
         player.start();
         return START_STICKY;
     }
